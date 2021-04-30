@@ -1,0 +1,41 @@
+<%-include('../partials/header') %> 
+<%-include('../partials/menu') %>
+
+<form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="userInput">
+    <button class="btn btn-outline-success" type="button" id="sbutton" onclick="getFromAPI()">Submit</button>
+</form>
+
+<div class = "card-columns" id="cards-folder">
+
+    <div class="text-center">
+        <a href="#getModal" class="btn btn-info" data-toggle="modal"> Insert Review</a>
+    </div>
+    <!-- Modal HTML -->
+    <div id="getModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form action="/home/add_reviews" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Write A Review</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="showName">Show Name</label>
+                            <textarea class="col-sm-2 col-form-label" type="text" name="show" id="show" placeholder = "Enter Show"></textarea>>
+                        </div>
+                        <div class="form-group">
+                            <label for="showReview">Review</label>
+                            <textarea class="form-control" type="text" name="showRev" placeholder="Enter review here" rows="6"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<%-include('../partials/footer')%>
